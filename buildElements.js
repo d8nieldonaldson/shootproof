@@ -45,6 +45,7 @@ function buildThumbnail(element){
     
     thumbnail.src = element.thumbnail.href;
     thumbnail.alt = element.thumbnail.description;
+    thumbnail.title = element.thumbnail.description;
     thumbnail.classList.add('thumbnail');
     
     return thumbnail;
@@ -55,6 +56,7 @@ function buildCarat(element){
 
     carat.src = 'img/carat_up_2x.png';
     carat.alt = 'reveal/conceal additonal content';
+    carat.title = 'reveal/conceal additonal content';
     carat.classList.add('carat');
     carat.classList.add('closed');
 
