@@ -1,0 +1,155 @@
+
+*{
+    box-sizing: border-box;
+}
+
+html,body{
+    /* facilitate easy math for relative units */
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: hsl(195, 43%, 29%);
+}
+
+main{
+    padding: 2rem;
+    font-size: 1.6rem;
+}
+
+.collapsible-header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.8rem;
+}
+
+.node-content-container{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.parent-list:first-of-type{
+    border-top: 1px solid rgba(0,0,0,0.12);
+}
+
+.thumbnail{
+    max-width: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 1.2rem;
+    background-color: hsl(195, 72%, 68%);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+}
+
+.node-name{
+    margin-left: .6rem;
+}
+.parent-list{
+    cursor: pointer;
+    /* stack parents on top (z) so that hidden children that 
+    appear first in source order don't intercept pointer events */
+    position: relative;
+}
+
+.nested-list{
+    opacity: 0;
+    transform: scaleY(0);
+    height: 0;
+    transform-origin: 50% 0%;
+
+    animation-name: toggleClose;
+    animation-duration: 320ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards; 
+    animation-delay: 0ms;
+    
+}
+
+.nested-list > li > .node-content-container{
+    background-color: hsl(195, 72%, 68%);
+}
+
+.opened{
+    animation-name: toggleOpen;
+    animation-duration: 320ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0ms;
+}
+
+@keyframes toggleOpen{
+    from{
+        opacity: 0;
+        transform: scaleY(0);
+        height: 0;
+    }to
+    {
+        opacity: 1;
+        transform: scaleY(1);
+        height: 100%;
+    }
+}
+
+@keyframes toggleClose{
+    from{
+        opacity: 1;
+        transform: scaleY(1);
+        height: 100%;
+    }to{
+        opacity: 0;
+        transform: scaleY(0);
+        height: 0;
+    }
+}
+
+.carat{
+    width: 25px;
+    height: 25px;
+    margin-left: 1.2rem;
+    animation-name: spinOpen;
+    animation-duration: 320ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards; 
+    animation-delay: 0ms;
+}
+
+.carat.closed{
+    animation-name: spinClose;
+    animation-duration: 320ms;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0ms;
+}
+
+@keyframes spinOpen{
+    from{
+        transform: rotate(0.5turn);
+    }to{
+        transform: rotate(-1turn);
+    }
+}
+
+@keyframes spinClose{
+    from{
+        transform: rotate(-1turn);
+    }to{
+        transform: rotate(0.5turn);
+    }
+}
+
+
+
+@media all and (max-width: 24rem){
+    .thumbnail{
+        transform: scale(.65);
+        margin: .6rem;
+    }
+}
+
+
+
