@@ -1,7 +1,9 @@
 # Daniel Donaldson's submission
 
-Static site, you can just clone or download and open index.html in your browser.
-Vanilla JS and CSS, but assumed modern browser and so ES2015 used.
+My offering is static with no dependencies, so the project can be cloned or downloaded from github and then the index.html can be opened in a browser. 
+No server is needed, the project can be accessed via the file system.
+
+To see a live example: https://codepen.io/d8nieldonaldson/full/deYqdY/
 
 If you have questions, please contact me: d8nieldonaldson@gmail.com
 
